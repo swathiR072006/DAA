@@ -1,0 +1,16 @@
+import heapq
+def kruskals_min_heap(V, edges):   
+ heapq.heapify(edges)
+    mst = []
+    total_weight = 0
+    visited = set()
+    while edges and len(mst) < V - 1:
+        weight, u, v = heapq.heappop(edges)
+           if u not in visited or v not in visited:
+            mst.append((u, v, weight))
+            total_weight += weight
+            visited.add(u)
+            visited.add(v)
+    
+    print("MST Edges:", mst)
+    print("Total Minimum Cost:", total_weight)
