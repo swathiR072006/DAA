@@ -1,0 +1,23 @@
+def binary_search(arr, target):
+    low = 0
+    high = len(arr) - 1
+
+    while low <= high:
+        mid = (low + high) // 2
+
+        if arr[mid] == target:
+            return mid          # Element found
+        elif arr[mid] < target:
+            low = mid + 1       # Search right half
+        else:
+            high = mid - 1      # Search left half
+
+    return -1                   # Element not found
+
+
+# Example usage
+data = [11, 12, 22, 25, 64]     # Must be sorted
+target = 22
+
+index = binary_search(data, target)
+print("Element found at index:", index)
